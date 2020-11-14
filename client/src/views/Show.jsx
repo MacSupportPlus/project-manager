@@ -1,6 +1,7 @@
 import {useState,useEffect} from 'react';
 import Axios from 'axios';
 import {Link} from '@reach/router';
+
 const Show = props => {
     const [product,setProduct] = useState(null);
 

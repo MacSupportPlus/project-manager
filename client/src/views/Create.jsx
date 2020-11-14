@@ -6,7 +6,7 @@ import ProductForm from '../components/ProductForm';
 const Create = props => {
     
 
-    const [ProductFormData,setProductForm] = useState({
+    const [productForm,setProductForm] = useState({
         title:"",
         price:0,
         description: ""
@@ -19,7 +19,7 @@ const Create = props => {
 
     const handleInputChange = e => {
         setProductForm({
-            ...ProductFormData,
+            ...productForm,
             [e.target.name]:e.target.value
         })
     }
@@ -27,7 +27,7 @@ const Create = props => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        Axios.post('http://localhost:8000/api/products/create',ProductFormData)
+        Axios.post('http://localhost:8000/api/products/create',productForm)
             .then(res => {
                 if(res.data.results){
                     navigate('/products');
@@ -43,7 +43,7 @@ const Create = props => {
         <div>
             <h2 className="text-center"> Add A Product</h2>
             <ProductForm 
-                form={ProductFormData}
+                form={productForm}
                 handleInputChange={handleInputChange}
                 handleSubmit={handleSubmit}
                 errors={errors}
